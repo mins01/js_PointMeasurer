@@ -77,10 +77,9 @@ class PointMeasurer{
     if(this.firstX === null){
       this.pointerId = event.pointerId;
       this.isPrimary = event.isPrimary;
-      this.setFirst(event.x,event.y,event.timeStamp);
-      console.log(event.timeStamp);
+      this.setFirst(event.x,event.y);
     }
-    this.setCurrent(event.x,event.y,event.timeStamp);
+    this.setCurrent(event.x,event.y);
   }
 
   /**
