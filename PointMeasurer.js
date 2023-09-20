@@ -65,8 +65,11 @@ class PointMeasurer{
     this.isPrimary = null;
     this.firstX = null;
     this.firstY = null;
+    this.firstTimeStamp = null;
     this.x = null;
     this.y = null;
+    this.timeStamp = null;
+
   }
 
   /**
@@ -74,9 +77,9 @@ class PointMeasurer{
    * @param {Event} event 
    */
   setEvent(event){
-    if(this.firstX === null){
-      this.pointerId = event.pointerId;
-      this.isPrimary = event.isPrimary;
+    if(this.firstTimeStamp === null){
+      this.pointerId = event.pointerId??null;
+      this.isPrimary = event.isPrimary??null;
       this.setFirst(event.x,event.y);
     }
     this.setCurrent(event.x,event.y);
@@ -155,7 +158,7 @@ class PointMeasurer{
    * getter speed (scalar) (px/ms)
    * @type {number}
    */
-  get speed(){ return this.duration?Math.abs(this.distance) / this.duration:0; }
+  get speed(){ return this.duration?this.distance / this.duration:0; }
   /**
    * getter velocity (scalar) (px/ms) (alias speed)
    * @type {number}
